@@ -21,6 +21,6 @@ class Image(models.Model):
         with self.original_image.open() as image_file:
             image = PilImage.open(image_file)
             image_io = BytesIO()
-            image.save(image_io, format='JPEG', quality=70)
+            image.save(image_io, format='JPEG', quality=40)
             compressed_image_name = f'compressed_{self.original_image.name}'
             self.compressed_image.save(compressed_image_name, ContentFile(image_io.getvalue()), save=False)
